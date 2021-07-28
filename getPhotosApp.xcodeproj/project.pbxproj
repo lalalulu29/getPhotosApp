@@ -14,6 +14,12 @@
 		ED2DF1A726AC474500C7441D /* getPhotosApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED2DF1A526AC474500C7441D /* getPhotosApp.xcdatamodeld */; };
 		ED2DF1A926AC474C00C7441D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED2DF1A826AC474C00C7441D /* Assets.xcassets */; };
 		ED2DF1AC26AC474C00C7441D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED2DF1AA26AC474C00C7441D /* LaunchScreen.storyboard */; };
+		ED55A7E726ADDFE00017D018 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55A7E626ADDFE00017D018 /* AuthViewController.swift */; };
+		ED55A7E926ADFAF20017D018 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55A7E826ADFAF20017D018 /* NetworkProvider.swift */; };
+		ED55A7EB26ADFEB80017D018 /* photoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55A7EA26ADFEB80017D018 /* photoStruct.swift */; };
+		ED55A7ED26AE01D70017D018 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55A7EC26AE01D70017D018 /* PhotoViewController.swift */; };
+		ED55A7EF26AE0EB80017D018 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55A7EE26AE0EB80017D018 /* PhotoCollectionViewCell.swift */; };
+		ED55A7F126AE21AF0017D018 /* PresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED55A7F026AE21AE0017D018 /* PresentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,12 @@
 		ED2DF1A826AC474C00C7441D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED2DF1AB26AC474C00C7441D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED2DF1AD26AC474C00C7441D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED55A7E626ADDFE00017D018 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		ED55A7E826ADFAF20017D018 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		ED55A7EA26ADFEB80017D018 /* photoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoStruct.swift; sourceTree = "<group>"; };
+		ED55A7EC26AE01D70017D018 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		ED55A7EE26AE0EB80017D018 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		ED55A7F026AE21AE0017D018 /* PresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,12 @@
 			children = (
 				ED2DF19C26AC474500C7441D /* AppDelegate.swift */,
 				ED2DF19E26AC474500C7441D /* SceneDelegate.swift */,
+				ED55A7E626ADDFE00017D018 /* AuthViewController.swift */,
+				ED55A7E826ADFAF20017D018 /* NetworkProvider.swift */,
+				ED55A7EC26AE01D70017D018 /* PhotoViewController.swift */,
+				ED55A7EE26AE0EB80017D018 /* PhotoCollectionViewCell.swift */,
+				ED55A7EA26ADFEB80017D018 /* photoStruct.swift */,
+				ED55A7F026AE21AE0017D018 /* PresentViewController.swift */,
 				ED2DF1A026AC474500C7441D /* ViewController.swift */,
 				ED2DF1A226AC474500C7441D /* Main.storyboard */,
 				ED2DF1A826AC474C00C7441D /* Assets.xcassets */,
@@ -142,8 +160,14 @@
 			files = (
 				ED2DF1A126AC474500C7441D /* ViewController.swift in Sources */,
 				ED2DF19D26AC474500C7441D /* AppDelegate.swift in Sources */,
+				ED55A7F126AE21AF0017D018 /* PresentViewController.swift in Sources */,
+				ED55A7EB26ADFEB80017D018 /* photoStruct.swift in Sources */,
+				ED55A7E726ADDFE00017D018 /* AuthViewController.swift in Sources */,
 				ED2DF19F26AC474500C7441D /* SceneDelegate.swift in Sources */,
+				ED55A7EF26AE0EB80017D018 /* PhotoCollectionViewCell.swift in Sources */,
+				ED55A7ED26AE01D70017D018 /* PhotoViewController.swift in Sources */,
 				ED2DF1A726AC474500C7441D /* getPhotosApp.xcdatamodeld in Sources */,
+				ED55A7E926ADFAF20017D018 /* NetworkProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +317,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 395GS436QF;
 				INFOPLIST_FILE = getPhotosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,7 +325,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.kirill98.getPhotosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -312,6 +337,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 395GS436QF;
 				INFOPLIST_FILE = getPhotosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -319,7 +345,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.kirill98.getPhotosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
