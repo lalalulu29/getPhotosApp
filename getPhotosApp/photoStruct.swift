@@ -8,7 +8,7 @@
 import Foundation
 
 struct photoStruct: Decodable {
-    var response: photoInfo?
+    var response: photoInfo
     
 }
 struct photoInfo: Decodable {

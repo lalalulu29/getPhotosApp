@@ -17,11 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Get Photos App" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzR-2U-zIR">
-                                <rect key="frame" x="20" y="127" width="220" height="132"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzR-2U-zIR">
+                                <rect key="frame" x="24" y="208" width="366" height="114.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="25"/>
+                                <string key="text">Get Photos
+ App</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="48"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -40,7 +41,10 @@
                         <viewLayoutGuide key="safeArea" id="GEm-5J-eLs"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="yzR-2U-zIR" firstAttribute="top" secondItem="GEm-5J-eLs" secondAttribute="top" constant="164" id="22A-eE-pTS"/>
                             <constraint firstItem="2pE-UV-Tbx" firstAttribute="leading" secondItem="GEm-5J-eLs" secondAttribute="leading" constant="44" id="Qht-B5-IGp"/>
+                            <constraint firstItem="yzR-2U-zIR" firstAttribute="leading" secondItem="GEm-5J-eLs" secondAttribute="leading" constant="24" id="YFH-aN-phu"/>
+                            <constraint firstItem="GEm-5J-eLs" firstAttribute="trailing" secondItem="yzR-2U-zIR" secondAttribute="trailing" constant="24" id="i8E-zF-FYy"/>
                             <constraint firstItem="GEm-5J-eLs" firstAttribute="trailing" secondItem="2pE-UV-Tbx" secondAttribute="trailing" constant="43" id="nYk-uR-0cd"/>
                             <constraint firstItem="GEm-5J-eLs" firstAttribute="bottom" secondItem="2pE-UV-Tbx" secondAttribute="bottom" constant="11" id="uGg-GO-I5k"/>
                         </constraints>
@@ -111,7 +115,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Mobile Up Gallery" id="vUC-ds-6nL">
-                        <barButtonItem key="rightBarButtonItem" title="Выход" id="OIv-gc-XYS"/>
+                        <barButtonItem key="rightBarButtonItem" title="Выход" id="OIv-gc-XYS">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="photoCollection" destination="eDc-0U-CEC" id="kE2-cz-0gy"/>

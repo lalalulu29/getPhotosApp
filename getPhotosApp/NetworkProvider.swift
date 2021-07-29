@@ -19,7 +19,8 @@ class NetworkProvider {
         session.dataTask(with: url) { data, _, error in
             guard let data = data else {
                 result(false, nil)
-                return}
+                return
+            }
             do {
                 let infoFromDate = try JSONDecoder().decode(photoStruct.self, from: data)
                 result(true, infoFromDate)

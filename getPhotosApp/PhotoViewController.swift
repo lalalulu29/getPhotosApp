@@ -15,7 +15,7 @@ class PhotoViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     
     
-    var photoList = Photo?.response?.items ?? []
+    var photoList = Photo?.response.items ?? []
     @IBOutlet weak var photoCollection: UICollectionView!
 
     override func viewDidLoad() {
@@ -26,15 +26,18 @@ class PhotoViewController: UIViewController {
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(goToAuthView))
+        navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = .black
+        
         if Photo == nil {
 
             let token = userDefaults.string(forKey: "token")
             networkProvider.checkValidToken(token: token!) {[weak self] bool, result in
                 if bool {
-                    
                     Photo = result
                     
-                    self?.photoList = (Photo?.response!.items)!
+                    self?.photoList = (Photo?.response.items)!
                     DispatchQueue.main.async {
                         self!.photoCollection.reloadData()
                     }
@@ -64,8 +67,6 @@ class PhotoViewController: UIViewController {
     }
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToPresent" {
             let DVC = segue.destination as! PresentViewController
@@ -73,7 +74,7 @@ class PhotoViewController: UIViewController {
 
             let image = PhotoImage[selectedRow.row]
             DVC.image = image
-            DVC.date = Photo?.response?.items[selectedRow.row].date
+            DVC.date = Photo?.response.items[selectedRow.row].date
         }
         
     }

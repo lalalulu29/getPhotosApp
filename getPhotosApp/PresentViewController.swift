@@ -14,7 +14,12 @@ class PresentViewController: UIViewController, NSUserActivityDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download", style: .plain, target: self, action: #selector(savePhoto))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(savePhoto))
+        navigationItem.rightBarButtonItem?.tintColor = .black
+        
         
         navigationController?.navigationBar.barTintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
@@ -53,18 +58,5 @@ class PresentViewController: UIViewController, NSUserActivityDelegate {
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil)
         }
-        
-        
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
