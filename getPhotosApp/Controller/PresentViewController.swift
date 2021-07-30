@@ -20,7 +20,7 @@ class PresentViewController: UIViewController, NSUserActivityDelegate {
         
         configureNavigationItemAndController()
         
-        //MARK: - Настройка dateFormatter для получения из ответа сетевого запроса дату необходимого вида
+        //Настройка dateFormatter для получения из ответа сетевого запроса дату необходимого вида
         let badDate = Date(timeIntervalSince1970: TimeInterval(date))
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = .autoupdatingCurrent

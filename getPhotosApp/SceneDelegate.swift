@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let networkProvider = NetworkProvider()
         
-        //MARK: -Проверка на наличие/отсутсиве токена с послеющей проверкой на его валадность
+        //Проверка на наличие/отсутсиве токена с послеющей проверкой на его валадность
         if token == nil {
             
             DispatchQueue.main.async {
