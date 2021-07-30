@@ -13,15 +13,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
         let userDefaults = UserDefaults.standard
         let token = userDefaults.string(forKey: "token")
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         var view: UIViewController!
         
         let networkProvider = NetworkProvider()
+        
+        //MARK: -Проверка на наличие/отсутсиве токена с послеющей проверкой на его валадность
         if token == nil {
             
             DispatchQueue.main.async {
@@ -31,6 +31,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         } else {
             networkProvider.checkValidToken(token: token!) { bool, result in
+                
+                //Булево значение = true если данные удалось распарсить
+                //Сами данные же парсятся только если токен валиден
                 DispatchQueue.main.async {
                     if bool {
                         Photo = result
@@ -45,9 +48,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
             }
         }
-        
-        
-        
         
         guard let _ = (scene as? UIWindowScene) else { return }
     }

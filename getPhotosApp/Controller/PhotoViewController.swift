@@ -20,16 +20,8 @@ class PhotoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = .white
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Выход",
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(goToAuthView))
-        navigationItem.rightBarButtonItem?.tintColor = .black
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem?.tintColor = .black
         
+        configureNavigationItem()
         if Photo == nil {
 
             let token = userDefaults.string(forKey: "token")
@@ -47,7 +39,19 @@ class PhotoViewController: UIViewController {
         }
         
     }
+    func configureNavigationItem() {
+        navigationController?.navigationBar.barTintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Выход",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(goToAuthView))
+        navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = .black
+    }
     
+    //MARK: - Метод, стирающий из userDefaults токен и выбрасывадщий на окно авторизации
     @objc func goToAuthView() {
         userDefaults.removeObject(forKey: "token")
         DispatchQueue.main.async {
@@ -81,16 +85,23 @@ class PhotoViewController: UIViewController {
 
 
 }
-
+//MARK: - Реализация методов протоколов UICollectionViewDataSource и UICollectionViewDelegate
 extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         return photoList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = photoCollection.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCollectionViewCell
+        
+        let cell = photoCollection.dequeueReusableCell(withReuseIdentifier: "photoCell",
+                                                       for: indexPath) as! PhotoCollectionViewCell
+        
         let numberPhoto = photoList[indexPath.row]
-        networkProvider.downloadPhoto(stringUrl: numberPhoto.sizes.last!.url, indexCell: indexPath.row) {bool in
+        
+        networkProvider.downloadPhoto(stringUrl: numberPhoto.sizes.last!.url,
+                                      indexCell: indexPath.row) {bool in
 
             if bool {
                 DispatchQueue.main.async {

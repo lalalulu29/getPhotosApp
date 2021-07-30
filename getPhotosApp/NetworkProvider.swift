@@ -12,7 +12,7 @@ class NetworkProvider {
     
     let session = URLSession.shared
     
-    
+    //MARK: - Метод, позволяющий проверить, являетя ли токен просроченным
     func checkValidToken(token: String, result: @escaping (Bool, photoStruct?)->()){
         let url = URL(string:"https://api.vk.com/method/photos.get?owner_id=-128666765&album_id=266276915&access_token=\(token)&v=5.131")!
         
@@ -31,6 +31,8 @@ class NetworkProvider {
         
         
     }
+    
+    //MARK: - Метод, отвечающий за скачивание фотографии
     func downloadPhoto(stringUrl: String, indexCell: Int, result: @escaping (Bool)->()) {
         guard let url = URL(string: stringUrl) else {return}
         session.dataTask(with: url) { data, _, error in

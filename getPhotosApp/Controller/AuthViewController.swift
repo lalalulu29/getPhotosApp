@@ -36,7 +36,11 @@ class AuthViewController: UIViewController {
         viewController.view.addSubview(webView)
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.title), options: .new, context: nil)
         guard let authUrl = URL(string: "https://oauth.vk.com/authorize?client_id=\(clientId)&redirect_uri=\(redirect_uri)&response_type=token&revoke=1") else {
-            showAlertWith(error: "Error make URL", message: "Возникла ошибка при создании URL")
+            DispatchQueue.main.async {
+                self.present(ShowAlertWith("Error make URL",
+                                      message: "Возникла ошибка при создании URL"),
+                        animated: true)
+            }
             return
             
         }
@@ -45,21 +49,11 @@ class AuthViewController: UIViewController {
         DispatchQueue.main.async {
             self.present(viewController, animated: true, completion: nil)
         }
-        
-        
-        
+
     }
     
-    func showAlertWith(error title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okActtion = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okActtion)
-        DispatchQueue.main.async {
-            self.present(alert, animated: true, completion: nil)
-        }
-        
-    }
-    
+
+    //MARK: - Переопределение метода observeValue, дабы WebView сама закрывалась после авторизации
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "title" {
             if let title = (object as! WKWebView).title {
@@ -72,7 +66,7 @@ class AuthViewController: UIViewController {
         }
     }
     
-    
+    //MARK: - Метод, ищущий в возвращаемой ссылке токен. В случае ошибки вызывающий алерт
     func parsLink(_ link: URL){
         let linkForString = link.absoluteString
         if linkForString.contains("token=") {
@@ -82,7 +76,12 @@ class AuthViewController: UIViewController {
             dismiss(animated: true, completion: nil)
             performSegue(withIdentifier: "goToPhotoView", sender: nil)
         } else {
-            showAlertWith(error: "Ошибка авторизации", message: "Вы не дали доступ")
+            DispatchQueue.main.async {
+                self.present(ShowAlertWith("Ошибка авторизации",
+                                      message: "Вы не дали доступ"),
+                        animated: true)
+            }
+            
         }
 
     }
@@ -97,6 +96,7 @@ class AuthViewController: UIViewController {
     
     
 }
+//MARK: - Расширение типа int методом, позволяющим парсить строку, при указании начального и конечного счустка строки
 extension String {
     func sliceFrom(start: String, to: String?) -> String? {
         guard let startPoint = range(of: start) else {return nil}
@@ -104,4 +104,12 @@ extension String {
         guard let endPoint = range(of: to, range: startPoint.upperBound..<endIndex) else {return nil}
         return self[startPoint.upperBound..<endPoint.lowerBound].description
     }
+}
+//MARK: - Общая функция вызова алерта с передачей в нее необходимой для отображения на алерте информации
+func ShowAlertWith(_ title: String, message: String) -> UIAlertController{
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    let okActtion = UIAlertAction(title: "OK", style: .default, handler: nil)
+    alert.addAction(okActtion)
+    return alert
+    
 }

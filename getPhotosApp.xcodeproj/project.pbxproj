@@ -70,12 +70,10 @@
 			children = (
 				ED2DF19C26AC474500C7441D /* AppDelegate.swift */,
 				ED2DF19E26AC474500C7441D /* SceneDelegate.swift */,
-				ED55A7E626ADDFE00017D018 /* AuthViewController.swift */,
+				ED55A7F226B3F42C0017D018 /* Model */,
+				ED55A7F326B3F43F0017D018 /* View */,
+				ED55A7F426B3F4480017D018 /* Controller */,
 				ED55A7E826ADFAF20017D018 /* NetworkProvider.swift */,
-				ED55A7EC26AE01D70017D018 /* PhotoViewController.swift */,
-				ED55A7EE26AE0EB80017D018 /* PhotoCollectionViewCell.swift */,
-				ED55A7EA26ADFEB80017D018 /* photoStruct.swift */,
-				ED55A7F026AE21AE0017D018 /* PresentViewController.swift */,
 				ED2DF1A226AC474500C7441D /* Main.storyboard */,
 				ED2DF1A826AC474C00C7441D /* Assets.xcassets */,
 				ED2DF1AA26AC474C00C7441D /* LaunchScreen.storyboard */,
@@ -83,6 +81,32 @@
 				ED2DF1A526AC474500C7441D /* getPhotosApp.xcdatamodeld */,
 			);
 			path = getPhotosApp;
+			sourceTree = "<group>";
+		};
+		ED55A7F226B3F42C0017D018 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED55A7EA26ADFEB80017D018 /* photoStruct.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED55A7F326B3F43F0017D018 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED55A7EE26AE0EB80017D018 /* PhotoCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED55A7F426B3F4480017D018 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ED55A7E626ADDFE00017D018 /* AuthViewController.swift */,
+				ED55A7EC26AE01D70017D018 /* PhotoViewController.swift */,
+				ED55A7F026AE21AE0017D018 /* PresentViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
